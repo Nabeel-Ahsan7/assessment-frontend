@@ -663,7 +663,7 @@ Contributions are welcome! Please follow these steps:
 ## 📞 Support
 
 For support or questions:
-- Email: support@nebsit.com
+- Email: nabeelahsanofficial@gmail.com
 - Documentation: [Backend API Docs](../../backend/API_DOCUMENTATION.md)
 
 ---
