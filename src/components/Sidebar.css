@@ -1,0 +1,187 @@
+/* Sidebar Container - Exact Figma Specs */
+.sidebar {
+    width: 257px;
+    height: 1090px;
+    background-color: #FFFFFF;
+    border-right: 1px solid #F5F6FA;
+    padding: 34px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    opacity: 1;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+    overflow-y: auto;
+}
+
+/* Logo Section - Exact Figma Specs */
+.sidebar-logo {
+    width: 160px;
+    height: 27.56px;
+    opacity: 1;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Navigation Container - Exact Figma Specs */
+.sidebar-nav {
+    width: 209px;
+    height: 944.44px;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+/* Navigation Button */
+.nav-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    color: #64748B;
+}
+
+.nav-button:hover {
+    background-color: #F8FAFC;
+}
+
+.nav-button.active {
+    color: #334155;
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    color: #94A3B8;
+}
+
+.nav-icon.active-icon {
+    color: #475569;
+}
+
+.nav-text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.nav-text.active-text {
+    color: #334155;
+}
+
+.chevron {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+}
+
+.chevron.rotate {
+    transform: rotate(180deg);
+}
+
+/* Active Dropdown Container */
+.active-dropdown-container {
+    width: 209px;
+    padding-bottom: 16px;
+    gap: 12px;
+    border-radius: 6px;
+    background: #FAFAFD;
+    border: 0.5px solid #CBD5E1;
+    display: flex;
+    flex-direction: column;
+}
+
+.active-dropdown-container .nav-button {
+    background: transparent;
+}
+
+.active-dropdown-container .nav-button:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+/* Submenu */
+.submenu {
+    list-style: none;
+    padding: 0 12px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.submenu-regular {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.submenu-button {
+    width: 100%;
+    text-align: left;
+    padding: 8px 0 8px 32px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #64748B;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.submenu-button:hover {
+    color: #0F172A;
+}
+
+/* Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #E2E8F0;
+    border-radius: 2px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #CBD5E1;
+}
