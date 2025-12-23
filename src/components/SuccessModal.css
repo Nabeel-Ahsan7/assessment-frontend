@@ -1,0 +1,126 @@
+.success-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.success-modal {
+    width: 720px;
+    height: 552px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: 0.5px solid #9096B1;
+    box-shadow: 0px 8px 28px 0px rgba(54, 65, 82, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    gap: 32px;
+}
+
+.success-icon {
+    color: #10B981;
+    animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.success-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #232948;
+    margin: 0;
+    text-align: center;
+}
+
+.success-message {
+    font-size: 16px;
+    color: #595F84;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0;
+}
+
+.success-message strong {
+    color: #232948;
+    font-weight: 600;
+}
+
+.success-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.success-btn {
+    height: 44px;
+    border-radius: 56px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.view-btn {
+    width: 158px;
+    padding: 8px 24px;
+    background: white;
+    border: 1px solid #3B82F6;
+    color: #3B82F6;
+}
+
+.view-btn:hover {
+    background: #3B82F6;
+    color: white;
+}
+
+.create-btn {
+    width: 195px;
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid #F95524;
+    color: #F95524;
+}
+
+.create-btn:hover {
+    background: #F95524;
+    color: white;
+}
+
+.close-btn {
+    width: 109px;
+    padding: 8px 24px;
+    background: white;
+    border: 1px solid #232948;
+    color: #232948;
+}
+
+.close-btn:hover {
+    background: #232948;
+    color: white;
+}
