@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Calendar, Upload, X } from 'lucide-react';
 import './CreateNotice.css';
 import { noticeAPI, departmentAPI, employeeAPI } from '../services/api';
+import SuccessModal from './SuccessModal';
 
 const CreateNotice = ({ onBack }) => {
     const [formData, setFormData] = useState({
@@ -25,6 +26,8 @@ const CreateNotice = ({ onBack }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [createdNoticeId, setCreatedNoticeId] = useState(null);
 
     const noticeTypeOptions = [
         'Warning / Disciplinary',
@@ -234,12 +237,17 @@ const CreateNotice = ({ onBack }) => {
             const response = await noticeAPI.create(noticeData);
 
             if (response.success) {
-                setSuccess(status === 1 ? 'Notice published successfully!' : 'Notice saved as draft!');
-
-                // Reset form after 2 seconds
-                setTimeout(() => {
-                    if (onBack) onBack();
-                }, 2000);
+                if (status === 1) {
+                    // Show success modal for published notices
+                    setCreatedNoticeId(response.data._id);
+                    setShowSuccessModal(true);
+                } else {
+                    // For drafts, show simple success message and go back
+                    setSuccess('Notice saved as draft!');
+                    setTimeout(() => {
+                        if (onBack) onBack();
+                    }, 2000);
+                }
             }
         } catch (err) {
             console.error('Error creating notice:', err);
@@ -509,6 +517,40 @@ const CreateNotice = ({ onBack }) => {
                     </button>
                 </div>
             </div>
+
+            {/* Success Modal */}
+            {showSuccessModal && (
+                <SuccessModal
+                    noticeTitle={formData.noticeTitle}
+                    onViewNotice={() => {
+                        setShowSuccessModal(false);
+                        // Navigate to view notice - you can implement this based on your routing
+                        // For now, just close and go back
+                        if (onBack) onBack();
+                    }}
+                    onCreateAnother={() => {
+                        setShowSuccessModal(false);
+                        // Reset form to create another notice
+                        setFormData({
+                            target: '',
+                            department: '',
+                            noticeTitle: '',
+                            employeeId: '',
+                            employeeName: '',
+                            position: '',
+                            noticeTypes: [],
+                            publishDate: '',
+                            noticeBody: '',
+                            attachments: []
+                        });
+                        setCreatedNoticeId(null);
+                    }}
+                    onClose={() => {
+                        setShowSuccessModal(false);
+                        if (onBack) onBack();
+                    }}
+                />
+            )}
         </div>
     );
 };
