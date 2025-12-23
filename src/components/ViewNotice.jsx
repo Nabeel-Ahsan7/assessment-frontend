@@ -3,6 +3,8 @@ import { X, Calendar, User, Building2, FileText, Download } from 'lucide-react';
 import './ViewNotice.css';
 import { noticeAPI } from '../services/api';
 
+const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL || 'http://localhost:5000';
+
 const ViewNotice = ({ noticeId, onClose }) => {
     const [notice, setNotice] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -157,7 +159,7 @@ const ViewNotice = ({ noticeId, onClose }) => {
                                 {notice.attachments.map((attachment, index) => (
                                     <a
                                         key={index}
-                                        href={`http://localhost:5000${attachment}`}
+                                        href={`${IMG_BASE_URL}${attachment}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="attachment-item"
